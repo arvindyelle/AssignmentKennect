@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <script type="text/javascript">
+           function primeEvent() {
+                var n, i ;
+               count = 0;
+               temp = 0;
+                n = document.myform.n.value;
+                n = parseInt(n);
+                for (let index = 2; index < n; index++) {
+                    
+                    if (n % index == 0) {
+                        count ++
+                        break;
+                    }
+                }
+                if (count == 0) {
+                    alert(n + " is prime");
+
+                }else{
+                    alert(n + " is not prime");
+                }
+                // this.nextPrimeNumber();
+           }
+
+           function nextPrimeNumber(){
+            var n, i ;
+               count = 0;
+              // temp = 0;
+                n = document.myform.n.value;
+                n = parseInt(n);
+                sqrt = n*n
+                //console.log(sqrt);
+                for (let index = 1; index <= sqrt; index++) {
+                    count = 0;
+                    
+                    for (let i = 2; i < index; i++) {
+                        if (index % i == 0) {
+                            count++;
+                        }  
+                    }
+                    if (count == 0) {
+                        //alert(i);
+                        //console.log(index);
+                        if (n < index) {
+                            console.log("next prime number : "+ index);
+                            alert("next prime number : "+ index);
+                            difference = index - n;
+                            console.log("Difference of "+index +" and "+n+" is "+difference);
+                            alert("Difference of "+index +" and "+n+" is "+ difference);
+                            break;
+                        }
+                    } 
+                }   
+           }
+        </script>
+
+        <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").focus(function() {
+                $("p").hide();
+            });
+        });
+    </script>
+    </head>
+    <body>
+        <center>   
+            <h4>check number is prime or not</h4>
+             
+            <hr color="Green">
+            <p>hello</p>
+             
+            <form name="myform">
+                Enter the number:
+                <input type="text" name=n value="">
+                 
+                <br><br>
+                 
+                <input type="button" value="Check" onClick="primeEvent()">
+                <input type="button" value="Differnce" onclick="nextPrimeNumber()">
+                <button>hello</button>
+                <br>
+            </form>
+        </center>
+    </body>
+</html>

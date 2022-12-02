@@ -1,0 +1,24 @@
+
+1.4Q) Explain JWT in approx and prove it's top 3 benefits?
+	- JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. 
+	- Each JWT contains encoded JSON objects, including a set of claims.
+	- the user submits the username and password to an Authentication server, which might be our Application server, 
+	- the Authentication server validates the username and password combination and creates a JWT token with a payload containing 
+	  the user technical identifier and an expiration timestamp
+	- the Authentication server then takes a secret key, and uses it to sign the Header plus Payload and sends it back to the user browser 
+	- the browser takes the signed JWT and starts sending it with each HTTP request to our Application server
+	- our Application server checks the JWT signature and confirms that indeed someone in possession of the secret key signed this particular Payload
+	- The Payload identifies a particular user via a technical identifier
+	- Only the Authentication server is in possession of the private key, and the Authentication server only gives out tokens to users 
+	  that submit the correct password
+	- therefore our Application server can safely be sure that this token was indeed given to this particular user by the Authentication server, 
+	  meaning that it's indeed the user as it had the right password
+	- The server proceeds with processing the HTTP request assuming that it indeed it belongs to that user
+	
+	Advantages
+	- Each JWT contains encoded JSON objects, including a set of claims.
+	- it is more secure because it's signed
+	- it is easy to use
+	- jwt is more flexible
+	- it is stored only on the client 
+	- It’s quick to verify a JWT since it doesn’t require a database lookup. This is especially useful in large distributed systems
